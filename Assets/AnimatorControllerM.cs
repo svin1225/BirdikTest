@@ -8,9 +8,16 @@ public class AnimatorControllerM : MonoBehaviour
     public Animator merchAnimator;
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            merchAnimator.SetTrigger("shake");
-        }
+        
     }
 }
+
+
+
+
+
+
+//    if (Input.GetKeyUp(KeyCode.E))
+//{
+//    merchAnimator.SetTrigger("shake");
+//}

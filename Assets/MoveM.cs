@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MoveM : MonoBehaviour
 {
+    public Animator merchAnimator;
     public Transform player;
     private NavMeshAgent agent;
     private Vector3 randomDirection;
@@ -27,6 +28,10 @@ public class MoveM : MonoBehaviour
         else if (Vector3.Distance(transform.position, player.position) < 1f)
         {
             agent.SetDestination(transform.position);
+            if (AnimatorController.ShakingHands == true)
+            {
+                merchAnimator.SetTrigger("ShakeM");
+            }
         }
         else
         {
@@ -45,3 +50,4 @@ public class MoveM : MonoBehaviour
         changeDirectionTimer = Random.Range(minChange, maxChange);
     }
 }
+

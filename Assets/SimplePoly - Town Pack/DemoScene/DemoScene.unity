@@ -8405,6 +8405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9705e65ef2aadbb4e9776d3701fcdff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Merch: {fileID: 594829936}
   controller: {fileID: 344217419}
 --- !u!143 &344217419
 CharacterController:
@@ -13085,12 +13086,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594829936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6cc475c02329ef4ea0de473dffc9b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  merchAnimator: {fileID: 0}
+  merchAnimator: {fileID: 594829946}
 --- !u!114 &594829938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13103,6 +13104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9705e65ef2aadbb4e9776d3701fcdff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Merch: {fileID: 0}
   controller: {fileID: 0}
 --- !u!195 &594829941
 NavMeshAgent:
@@ -13138,6 +13140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66005536d5a63374489e809c27238bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  merchAnimator: {fileID: 594829946}
   player: {fileID: 344217415}
 --- !u!136 &594829945
 CapsuleCollider:
@@ -13162,6 +13165,11 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &594829946 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: c6e8a3c43edcecb4f9128e26335eb022, type: 3}
+  m_PrefabInstance: {fileID: 594829935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &595220638
 PrefabInstance:
   m_ObjectHideFlags: 0
