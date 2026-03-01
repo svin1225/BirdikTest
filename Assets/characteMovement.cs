@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 public class characteMovement : MonoBehaviour
 {
+    private bool povorot = true;
     public GameObject Merch;
     public static bool ShakingHands = false;
     public CharacterController controller;
@@ -21,6 +23,16 @@ public class characteMovement : MonoBehaviour
         distance = Vector3.Distance(transform.position, Merch.transform.position);
         if ((AnimatorController.ShakingHands == true) && (distance < 1.2f))
         {
+            if (povorot == true)
+            {
+                Debug.Log("поворот игрока = " + transform.eulerAngles);
+                Debug.Log("поворот торговца = " + Merch.transform.eulerAngles);
+                //transform.LookAt (Merch.transform.position);
+                Debug.Log("изменненый поворот игрока = " + transform.eulerAngles);
+                //transform.eulerAngles = Merch.transform.eulerAngles * -1;
+            }
+            povorot = false;
+            //transform.rotation = Quaternion.Euler(0, 90, 0);
             GetComponent<MouseController>().enabled = false;
         }
         else if (AnimatorController.ShakingHands == false)
