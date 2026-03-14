@@ -9,6 +9,7 @@ public class characteMovement : MonoBehaviour
 {
     private bool povorot = true;
     public GameObject Merch;
+    public GameObject Dialog;
     public static bool ShakingHands = false;
     public CharacterController controller;
     private float speed = 5f;
@@ -17,7 +18,7 @@ public class characteMovement : MonoBehaviour
     private bool isGrounded = true;
     float distance;
     private Vector3 velocity;
-    
+           
     void Update()
     {
         distance = Vector3.Distance(transform.position, Merch.transform.position);
@@ -34,6 +35,9 @@ public class characteMovement : MonoBehaviour
             povorot = false;
             //transform.rotation = Quaternion.Euler(0, 90, 0);
             GetComponent<MouseController>().enabled = false;
+            Dialog.SetActive(true);
+            UnityEngine.Cursor.visible = true;
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
         }
         else if (AnimatorController.ShakingHands == false)
         {
