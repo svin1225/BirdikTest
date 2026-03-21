@@ -12,10 +12,20 @@ public class MouseController : MonoBehaviour
 
     private float rotationX;
     private float rotationY;
+    
+    public Transform playerBody;
+    public Transform cameraTransform;
+    public float cameraDistance = 0.2f;
+    
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        if (cameraTransform == null)
+            cameraTransform = Camera.main.transform;
+        if (playerBody == null)
+            playerBody = transform;
     }
 
     void Update()
@@ -24,8 +34,14 @@ public class MouseController : MonoBehaviour
         rotationX = Mathf.Clamp(rotationX, minVert, maxVert);
 
         float delta = Input.GetAxis("Mouse X") * speedHor;
-        rotationY = transform.localEulerAngles.y + delta;
+        rotationY += delta;
 
-        transform.localEulerAngles = new Vector3(rotationX, rotationY, 0);
+        // Поворачиваем игрока только по Y
+        playerBody.localEulerAngles = new Vector3(0, rotationY, 0);
+        
+        // Камера сзади игрока и смотрит на него (вид от 3 лица)
+        Vector3 cameraOffset = new Vector3(0, 1, -cameraDistance);
+        cameraTransform.position = playerBody.position + Quaternion.Euler(rotationX, rotationY, 0) * cameraOffset;
+        cameraTransform.LookAt(playerBody.position + Vector3.up * 1);
     }
 }
