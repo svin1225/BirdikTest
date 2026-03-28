@@ -7,6 +7,7 @@ using UnityEngine.XR;
 
 public class characteMovement : MonoBehaviour
 {
+    public static bool DialogFinished;
     private bool povorot = true;
     public GameObject Merch;
     public GameObject Dialog;
@@ -24,25 +25,30 @@ public class characteMovement : MonoBehaviour
         distance = Vector3.Distance(transform.position, Merch.transform.position);
         if ((AnimatorController.ShakingHands == true) && (distance < 1.2f))
         {
+
             if (povorot == true)
             {
                 Debug.Log("поворот игрока = " + transform.eulerAngles);
                 Debug.Log("поворот торговца = " + Merch.transform.eulerAngles);
-                //transform.LookAt (Merch.transform.position);
                 Debug.Log("изменненый поворот игрока = " + transform.eulerAngles);
-                //transform.eulerAngles = Merch.transform.eulerAngles * -1;
             }
             povorot = false;
-            //transform.rotation = Quaternion.Euler(0, 90, 0);
+
             GetComponent<MouseController>().enabled = false;
             Dialog.SetActive(true);
             UnityEngine.Cursor.visible = true;
             UnityEngine.Cursor.lockState = CursorLockMode.None;
+
+            if (DialogActiv.DialogFinished == true)
+            {
+                AnimatorController.ShakingHands = false;
+                Dialog.SetActive(false);
+                GetComponent<MouseController>().enabled = true;
+                UnityEngine.Cursor.visible = false;
+                UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+            }
         }
-        else if (AnimatorController.ShakingHands == false)
-        {
-            GetComponent<MouseController>().enabled = true;
-        }
+
         isGrounded = controller.isGrounded;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");

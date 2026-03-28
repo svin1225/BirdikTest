@@ -6869,7 +6869,7 @@ GameObject:
   - component: {fileID: 255607500}
   - component: {fileID: 255607499}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextNext (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8834,6 +8834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c11a32eed283a54c9e5952ae3e0f95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextNext: {fileID: 255607499}
   HeroDialog: {fileID: 1001862576}
   MerchDialog: {fileID: 1544963106}
   scoreText: {fileID: 146532168}
@@ -36670,7 +36671,7 @@ GameObject:
   - component: {fileID: 1710231864}
   - component: {fileID: 1710231863}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ButtonNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
