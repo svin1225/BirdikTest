@@ -4,9 +4,14 @@ public class PovorotX : MonoBehaviour
 {
     public Transform playerBody;
     public Transform cameraTransform;
-    public float cameraDistance = 2f;
+    public float cameraDistance = 4f;
     public float minDistance = 0.1f;
     public LayerMask obstacleLayer;
+    
+    private float speedVert = 2f;
+    private float minVert = -65f;
+    private float maxVert = 25f;
+    private float rotationX;
     
     void Start()
     {
@@ -18,8 +23,11 @@ public class PovorotX : MonoBehaviour
 
     void Update()
     {
-        Vector3 cameraOffset = new Vector3(0, 2, -cameraDistance);
-        Vector3 desiredCameraPos = playerBody.position + playerBody.rotation * cameraOffset;
+        rotationX -= Input.GetAxis("Mouse Y") * speedVert;
+        rotationX = Mathf.Clamp(rotationX, minVert, maxVert);
+        
+        Vector3 cameraOffset = new Vector3(0, 4, -cameraDistance);
+        Vector3 desiredCameraPos = playerBody.position + playerBody.rotation * Quaternion.Euler(rotationX, 0, 0) * cameraOffset;
         
         RaycastHit hit;
         Vector3 direction = desiredCameraPos - (playerBody.position + Vector3.up * 1);
