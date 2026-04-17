@@ -4,7 +4,7 @@ public class PovorotX : MonoBehaviour
 {
     public Transform playerBody;
     public Transform cameraTransform;
-    public float cameraDistance = 4f;
+    public float cameraDistance = 2f;
     public float minDistance = 0.1f;
     public LayerMask obstacleLayer;
     

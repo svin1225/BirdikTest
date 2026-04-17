@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -7,6 +8,11 @@ using UnityEngine.XR;
 
 public class characteMovement : MonoBehaviour
 {
+    public TextMeshProUGUI scoreText;
+    public GameObject HeroDialog;
+    public GameObject MerchDialog;
+    private static int count;
+    static private bool merch;
     public static bool DialogFinished;
     private bool povorot = true;
     public GameObject Merch;
@@ -42,7 +48,7 @@ public class characteMovement : MonoBehaviour
             if (DialogActiv.DialogFinished == true)
             {
                 AnimatorController.ShakingHands = false;
-                Dialog.SetActive(false);
+                Dialog.SetActive(false);              
                 GetComponent<MouseController>().enabled = true;
                 UnityEngine.Cursor.visible = false;
                 UnityEngine.Cursor.lockState = CursorLockMode.Locked;
@@ -65,5 +71,6 @@ public class characteMovement : MonoBehaviour
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-    }
+
+         }
 }
